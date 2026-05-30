@@ -1267,3 +1267,49 @@ section { padding: 100px 0; }
   .tables-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr; }
 }
+
+.broken-neon-link{
+  color:#00e5ff;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:1px;
+  text-shadow:
+    0 0 5px #00e5ff,
+    0 0 10px #00e5ff,
+    0 0 20px #00e5ff,
+    0 0 40px #00e5ff;
+  animation: brokenNeon 4s infinite;
+  transition: all .3s ease;
+}
+
+.broken-neon-link:hover{
+  color:#ffffff;
+  text-shadow:
+    0 0 10px #00e5ff,
+    0 0 20px #00e5ff,
+    0 0 40px #00e5ff,
+    0 0 80px #00e5ff;
+}
+
+@keyframes brokenNeon{
+  0%,18%,22%,25%,53%,57%,100%{
+    opacity:1;
+    text-shadow:
+      0 0 5px #00e5ff,
+      0 0 10px #00e5ff,
+      0 0 20px #00e5ff,
+      0 0 40px #00e5ff;
+  }
+
+  20%,24%,55%{
+    opacity:.2;
+    text-shadow:none;
+  }
+
+  21%,56%{
+    opacity:.8;
+    text-shadow:
+      0 0 3px #00e5ff,
+      0 0 8px #00e5ff;
+  }
+}
