@@ -1,0 +1,21 @@
+{
+  "name": "BILLIARD 805 Parung",
+  "short_name": "Billiard 805",
+  "description": "Tempat billiard premium modern di Parung, Bogor. Play • Chill • Compete.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00d4ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable any" }
+  ],
+  "categories": ["sports", "entertainment", "lifestyle"],
+  "lang": "id",
+  "dir": "ltr",
+  "shortcuts": [
+    { "name": "Booking Meja", "url": "/index.html#booking", "description": "Booking meja billiard online" },
+    { "name": "Live Status", "url": "/index.html#meja", "description": "Cek status meja realtime" }
+  ]
+}

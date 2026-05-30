@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0f" />
+
+  <!-- SEO -->
+  <title>BILLIARD 805 Parung | Play • Chill • Compete | Bogor</title>
+  <meta name="description" content="Billiard 805 Parung - Tempat billiard premium modern di Jl. Raya Parung, Bogor. Cafe, turnamen, VIP membership, dan komunitas billiard terbaik." />
+  <meta name="keywords" content="billiard parung, billiard bogor, billiard cafe, tempat billiard premium, billiard 805, pool bogor, turnamen billiard" />
+  <meta name="author" content="Billiard 805 Parung" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://billiard805.github.io/" />
+  <meta property="og:title" content="BILLIARD 805 Parung — Play • Chill • Compete" />
+  <meta property="og:description" content="Tempat billiard premium modern di Parung, Bogor. Meja premium, cafe modern, event turnamen, dan komunitas billiard." />
+  <meta property="og:image" content="assets/icons/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BILLIARD 805 Parung" />
+  <meta name="twitter:description" content="Play • Chill • Compete — Billiard Premium di Parung Bogor" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "BILLIARD 805 Parung",
+    "description": "Tempat billiard premium modern di Parung Bogor",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Raya Parung No.Km.47",
+      "addressLocality": "Parung",
+      "addressRegion": "Jawa Barat",
+      "postalCode": "16330",
+      "addressCountry": "ID"
+    },
+    "openingHours": "Mo-Su 10:00-02:00",
+    "telephone": "+6281234567890",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="dark-mode" data-theme="dark">
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-logo">
+        <span class="loading-num">805</span>
+        <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+        <span class="loading-text">BILLIARD</span>
+      </div>
+      <div class="loading-tagline">PARUNG · BOGOR</div>
+    </div>
+  </div>
+
+  <!-- PWA Install Banner -->
+  <div id="pwaInstall" class="pwa-install hidden">
+    <div class="pwa-icon"><i class="fas fa-gamepad"></i></div>
+    <div class="pwa-text">
+      <strong>Install Billiard 805</strong>
+      <span>Akses lebih cepat di HP kamu</span>
+    </div>
+    <button id="pwaInstallBtn" class="pwa-btn">Install</button>
+    <button id="pwaClose" class="pwa-close"><i class="fas fa-times"></i></button>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="logoTap">
+        <span class="logo-num">805</span>
+        <span class="logo-text">BILLIARD</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#meja">Live Meja</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#cafe">Cafe</a></li>
+        <li><a href="#membership">VIP</a></li>
+        <li><a href="#tournament">Turnamen</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#leaderboard">Ranking</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+      <div class="nav-actions">
+        <!-- Live Clock -->
+        <div class="live-clock" id="liveClock">00:00</div>
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <!-- Music Toggle -->
+        <button class="music-toggle" id="musicToggle" title="Ambience Music">
+          <i class="fas fa-music"></i>
+        </button>
+        <!-- Login Member -->
+        <button class="btn-member" id="memberLoginBtn">
+          <i class="fas fa-user"></i> Member
+        </button>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg">
+      <div class="hero-particles" id="particles"></div>
+      <div class="neon-lines"></div>
+      <div class="hero-overlay"></div>
+      <!-- Animated billiard table SVG bg -->
+      <div class="hero-table-bg">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" class="table-svg">
+          <rect x="50" y="80" width="700" height="240" rx="20" fill="none" stroke="rgba(0,200,255,0.15)" stroke-width="3"/>
+          <rect x="80" y="110" width="640" height="180" rx="10" fill="rgba(0,80,40,0.3)" stroke="rgba(0,200,255,0.1)" stroke-width="1"/>
+          <circle cx="400" cy="200" r="8" fill="rgba(255,255,255,0.15)" class="ball-float"/>
+          <circle cx="350" cy="185" r="7" fill="rgba(0,150,255,0.3)" class="ball-float2"/>
+          <circle cx="450" cy="215" r="7" fill="rgba(200,0,255,0.3)" class="ball-float3"/>
+          <line x1="400" y1="110" x2="400" y2="290" stroke="rgba(0,200,255,0.08)" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="80" y1="200" x2="720" y2="200" stroke="rgba(0,200,255,0.08)" stroke-width="1" stroke-dasharray="4"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        OPEN NOW · PARUNG, BOGOR
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line" data-text="PLAY">PLAY</span>
+        <span class="title-sep">•</span>
+        <span class="title-line accent" data-text="CHILL">CHILL</span>
+        <span class="title-sep">•</span>
+        <span class="title-line" data-text="COMPETE">COMPETE</span>
+      </h1>
+      <p class="hero-sub">Billiard premium, cafe modern, dan komunitas terbaik di Parung, Bogor. Malam lebih seru bersama kita.</p>
+      <div class="hero-cta">
+        <a href="#booking" class="btn-primary">
+          <i class="fas fa-calendar-check"></i> Booking Sekarang
+        </a>
+        <a href="#meja" class="btn-outline">
+          <i class="fas fa-table-tennis-paddle-ball"></i> Lihat Meja
+        </a>
+      </div>
+
+      <!-- Stats Counter -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-target="12">0</span>
+          <span class="stat-label">Meja Premium</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="8500">0</span>
+          <span class="stat-label">Pengunjung</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="47">0</span>
+          <span class="stat-label">Turnamen</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="320">0</span>
+          <span class="stat-label">Member Aktif</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#tentang" class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </a>
+  </section>
+
+  <!-- PROMO BANNER SLIDER -->
+  <section class="promo-section">
+    <div class="promo-track" id="promoTrack">
+      <div class="promo-item">🎱 Weekday Special — Main 3 Jam Bayar 2 Jam!</div>
+      <div class="promo-item">⚡ Daftar Member VIP — Diskon 20% Setiap Kunjungan</div>
+      <div class="promo-item">🏆 Open Tournament Bulanan — Hadiah Total 5 Juta!</div>
+      <div class="promo-item">☕ Bundling Cafe + Main — Mulai 50K/Jam</div>
+      <div class="promo-item">🎮 Happy Hour 10.00–14.00 — Harga Spesial!</div>
+      <div class="promo-item">🎱 Weekday Special — Main 3 Jam Bayar 2 Jam!</div>
+      <div class="promo-item">⚡ Daftar Member VIP — Diskon 20% Setiap Kunjungan</div>
+    </div>
+  </section>
+
+  <!-- TENTANG -->
+  <section id="tentang" class="section-about reveal">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-card glass">
+            <div class="about-table-visual">
+              <div class="pool-table">
+                <div class="table-felt">
+                  <div class="center-dot"></div>
+                  <div class="table-line-h"></div>
+                  <div class="table-line-v"></div>
+                </div>
+                <div class="table-ball b1"></div>
+                <div class="table-ball b2"></div>
+                <div class="table-ball b3"></div>
+                <div class="table-ball b4"></div>
+                <div class="table-ball b5"></div>
+              </div>
+            </div>
+            <div class="about-badge-wrap">
+              <div class="about-badge-item"><i class="fas fa-star"></i> Premium Quality</div>
+              <div class="about-badge-item"><i class="fas fa-wifi"></i> Free WiFi</div>
+              <div class="about-badge-item"><i class="fas fa-parking"></i> Parkir Luas</div>
+              <div class="about-badge-item"><i class="fas fa-shield-alt"></i> CCTV 24 Jam</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-tag">Tentang Kami</div>
+          <h2 class="section-title">Billiard Premium<br/><span class="gradient-text">di Parung Bogor</span></h2>
+          <p>BILLIARD 805 hadir sebagai destinasi billiard premium modern di kawasan Parung, Bogor. Dengan 12 meja pilihan berkualitas internasional, suasana lounge cinematic, dan cafe modern — kami menghadirkan pengalaman bermain yang tak terlupakan.</p>
+          <p>Cocok untuk nongkrong malam, gathering komunitas, turnamen kompetitif, hingga sekedar bersantai bersama teman. Billiard 805 bukan sekedar tempat main — ini adalah lifestyle.</p>
+          <div class="about-features">
+            <div class="feat-item"><i class="fas fa-check-circle"></i> 12 Meja Brunswick Premium</div>
+            <div class="feat-item"><i class="fas fa-check-circle"></i> AC Full, Pencahayaan Neon Modern</div>
+            <div class="feat-item"><i class="fas fa-check-circle"></i> Cafe & Bar Non-Alkohol</div>
+            <div class="feat-item"><i class="fas fa-check-circle"></i> Live Streaming Turnamen</div>
+            <div class="feat-item"><i class="fas fa-check-circle"></i> Sistem Booking Online</div>
+            <div class="feat-item"><i class="fas fa-check-circle"></i> Program Member VIP Eksklusif</div>
+          </div>
+          <div class="jam-operasional">
+            <div class="jam-title"><i class="fas fa-clock"></i> Jam Operasional</div>
+            <div class="jam-grid">
+              <div class="jam-item"><span>Senin – Jumat</span><span class="jam-time">10.00 – 02.00 WIB</span></div>
+              <div class="jam-item"><span>Sabtu – Minggu</span><span class="jam-time">09.00 – 03.00 WIB</span></div>
+              <div class="jam-item"><span>Libur Nasional</span><span class="jam-time">09.00 – 03.00 WIB</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE TABLE STATUS -->
+  <section id="meja" class="section-tables reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Live Status</div>
+        <h2 class="section-title">Status <span class="gradient-text">Meja Billiard</span></h2>
+        <p class="section-sub">Update realtime ketersediaan meja. Pilih dan booking langsung!</p>
+      </div>
+
+      <div class="table-controls">
+        <div class="table-search">
+          <i class="fas fa-search"></i>
+          <input type="text" id="tableSearch" placeholder="Cari nomor meja..." />
+        </div>
+        <div class="table-filters">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="available">Kosong</button>
+          <button class="filter-btn" data-filter="occupied">Dipakai</button>
+          <button class="filter-btn" data-filter="booked">Booking</button>
+        </div>
+        <div class="table-legend">
+          <span class="leg-item"><span class="leg-dot available"></span>Kosong</span>
+          <span class="leg-item"><span class="leg-dot occupied"></span>Dipakai</span>
+          <span class="leg-item"><span class="leg-dot booked"></span>Booking</span>
+        </div>
+      </div>
+
+      <div class="tables-grid" id="tablesGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="section-booking reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Reservasi</div>
+        <h2 class="section-title">Booking <span class="gradient-text">Meja</span></h2>
+        <p class="section-sub">Amankan meja pilihanmu sekarang. Konfirmasi via WhatsApp.</p>
+      </div>
+
+      <div class="booking-grid">
+        <div class="booking-form-wrap glass">
+          <form id="bookingForm" class="booking-form" onsubmit="return false;">
+            <div class="form-group">
+              <label>Nama Lengkap</label>
+              <div class="input-icon-wrap">
+                <i class="fas fa-user"></i>
+                <input type="text" id="bkNama" placeholder="Nama kamu..." required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Nomor WhatsApp</label>
+              <div class="input-icon-wrap">
+                <i class="fab fa-whatsapp"></i>
+                <input type="tel" id="bkWa" placeholder="08xxxxxxxxxx" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Tanggal</label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-calendar"></i>
+                  <input type="date" id="bkTanggal" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Jam Mulai</label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-clock"></i>
+                  <input type="time" id="bkJam" required />
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Pilih Meja</label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-hashtag"></i>
+                  <select id="bkMeja" required>
+                    <option value="">-- Pilih Meja --</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Durasi (Jam)</label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-hourglass-half"></i>
+                  <select id="bkDurasi">
+                    <option value="1">1 Jam</option>
+                    <option value="2" selected>2 Jam</option>
+                    <option value="3">3 Jam</option>
+                    <option value="4">4 Jam</option>
+                    <option value="5">5+ Jam</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Catatan (opsional)</label>
+              <div class="input-icon-wrap">
+                <i class="fas fa-comment"></i>
+                <textarea id="bkCatatan" placeholder="Permintaan khusus..."></textarea>
+              </div>
+            </div>
+            <div class="booking-price-preview" id="bookingPrice">
+              <span>Estimasi Biaya:</span>
+              <span class="price-val" id="priceVal">Rp 0</span>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-primary full" id="bookingSubmit">
+                <i class="fas fa-calendar-check"></i> Konfirmasi Booking
+              </button>
+              <a href="#" class="btn-wa full" id="waBookingBtn">
+                <i class="fab fa-whatsapp"></i> Booking via WhatsApp
+              </a>
+            </div>
+          </form>
+        </div>
+
+        <div class="booking-info-wrap">
+          <div class="price-card glass">
+            <h3><i class="fas fa-tag"></i> Harga Main Billiard</h3>
+            <div class="price-list" id="priceList">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+          <div class="booking-history-card glass" id="bookingHistoryCard">
+            <h3><i class="fas fa-history"></i> Riwayat Booking</h3>
+            <div id="bookingHistory" class="booking-history-list"></div>
+            <div class="export-btns">
+              <button class="btn-sm" id="exportBooking"><i class="fas fa-download"></i> Export JSON</button>
+              <button class="btn-sm" id="importBookingBtn"><i class="fas fa-upload"></i> Import</button>
+              <input type="file" id="importBookingFile" accept=".json" style="display:none" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAFE MENU -->
+  <section id="cafe" class="section-cafe reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Cafe & Bar</div>
+        <h2 class="section-title">Menu <span class="gradient-text">Favorit</span></h2>
+        <p class="section-sub">Nikmati makanan & minuman premium sambil bermain atau bersantai.</p>
+      </div>
+      <div class="cafe-cats" id="cafeCats"></div>
+      <div class="cafe-grid" id="cafeGrid"></div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP VIP -->
+  <section id="membership" class="section-membership reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Eksklusif</div>
+        <h2 class="section-title">Paket <span class="gradient-text">Member VIP</span></h2>
+        <p class="section-sub">Bergabung dan nikmati keistimewaan member premium Billiard 805.</p>
+      </div>
+      <div class="membership-grid">
+        <div class="member-card glass">
+          <div class="member-tier silver">SILVER</div>
+          <div class="member-price">Rp 150.000<span>/bulan</span></div>
+          <ul class="member-perks">
+            <li><i class="fas fa-check"></i> Diskon 10% Main Billiard</li>
+            <li><i class="fas fa-check"></i> 1 Free Session / Bulan</li>
+            <li><i class="fas fa-check"></i> Priority Booking</li>
+            <li><i class="fas fa-check"></i> Free 1 Minuman/Hari</li>
+            <li><i class="fas fa-check"></i> Akses Member Area</li>
+          </ul>
+          <button class="btn-outline" onclick="openMemberModal('silver')">Daftar Silver</button>
+        </div>
+        <div class="member-card glass featured">
+          <div class="featured-badge">TERPOPULER</div>
+          <div class="member-tier gold">GOLD</div>
+          <div class="member-price">Rp 300.000<span>/bulan</span></div>
+          <ul class="member-perks">
+            <li><i class="fas fa-check"></i> Diskon 20% Main Billiard</li>
+            <li><i class="fas fa-check"></i> 3 Free Session / Bulan</li>
+            <li><i class="fas fa-check"></i> Priority Booking VIP</li>
+            <li><i class="fas fa-check"></i> Free Minuman Bebas</li>
+            <li><i class="fas fa-check"></i> Akses VIP Lounge</li>
+            <li><i class="fas fa-check"></i> Diskon Turnamen 50%</li>
+            <li><i class="fas fa-check"></i> Poin Reward 2x</li>
+          </ul>
+          <button class="btn-primary" onclick="openMemberModal('gold')">Daftar Gold</button>
+        </div>
+        <div class="member-card glass">
+          <div class="member-tier platinum">PLATINUM</div>
+          <div class="member-price">Rp 500.000<span>/bulan</span></div>
+          <ul class="member-perks">
+            <li><i class="fas fa-check"></i> Diskon 30% Main Billiard</li>
+            <li><i class="fas fa-check"></i> Unlimited Free Session</li>
+            <li><i class="fas fa-check"></i> Dedicated Table</li>
+            <li><i class="fas fa-check"></i> All-you-can-drink</li>
+            <li><i class="fas fa-check"></i> Private Locker</li>
+            <li><i class="fas fa-check"></i> Turnamen Gratis</li>
+            <li><i class="fas fa-check"></i> Poin Reward 3x</li>
+            <li><i class="fas fa-check"></i> Coach Personal</li>
+          </ul>
+          <button class="btn-outline" onclick="openMemberModal('platinum')">Daftar Platinum</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOURNAMENT -->
+  <section id="tournament" class="section-tournament reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Kompetisi</div>
+        <h2 class="section-title">Event & <span class="gradient-text">Tournament</span></h2>
+        <p class="section-sub">Jadwal turnamen dan event billiard eksklusif di Billiard 805.</p>
+      </div>
+      <div class="tournament-list" id="tournamentList"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section-gallery reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Galeri</div>
+        <h2 class="section-title">Suasana <span class="gradient-text">Billiard 805</span></h2>
+        <p class="section-sub">Rasakan vibe premium, cinematic, dan modern kami.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section id="testimoni" class="section-testimoni reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Review</div>
+        <h2 class="section-title">Kata <span class="gradient-text">Pelanggan</span></h2>
+      </div>
+      <div class="testimoni-slider" id="testimoniSlider"></div>
+      <div class="testimoni-dots" id="testimoniDots"></div>
+    </div>
+  </section>
+
+  <!-- LEADERBOARD -->
+  <section id="leaderboard" class="section-leaderboard reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Top Players</div>
+        <h2 class="section-title">Leaderboard <span class="gradient-text">Billiard 805</span></h2>
+        <p class="section-sub">Ranking pemain terbaik bulan ini. Siap bersaing?</p>
+      </div>
+      <div class="leaderboard-wrap glass">
+        <div class="lb-podium" id="lbPodium"></div>
+        <div class="lb-table" id="lbTable"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section-faq reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-title">Pertanyaan <span class="gradient-text">Umum</span></h2>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- MAPS & CONTACT -->
+  <section id="contact" class="section-contact reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Lokasi & Kontak</div>
+        <h2 class="section-title">Temukan <span class="gradient-text">Kami</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info glass">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Alamat</strong>
+              <p>Jl. Raya Parung No.Km.47, Jabon Mekar, Kec. Parung, Kabupaten Bogor, Jawa Barat 16330</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/6281234567890">+62 812-3456-7890</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:info@billiard805.com">info@billiard805.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>Jam Buka</strong>
+              <p>Setiap Hari · 10.00 – 02.00 WIB</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="soc-btn"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/6281234567890" class="soc-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <!-- Visitor Stats -->
+          <div class="visitor-stats glass">
+            <div class="vs-item"><i class="fas fa-users"></i><span id="visitorCount">0</span> Pengunjung Hari Ini</div>
+            <div class="vs-item"><i class="fas fa-eye"></i><span id="pageViews">0</span> Page Views</div>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.6!2d106.624!3d-6.419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e964f845e355%3A0x7a1745b6d94e791f!2sBILLIARD%20805%20Parung!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Lokasi Billiard 805 Parung">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><span class="logo-num">805</span><span class="logo-text">BILLIARD</span></div>
+          <p>Destinasi billiard premium modern di Parung, Bogor. Play, Chill, dan Compete bersama kami.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#meja">Status Meja</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#cafe">Cafe Menu</a></li>
+            <li><a href="#membership">VIP Member</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="#tournament">Turnamen</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#leaderboard">Leaderboard</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Kontak</a></li>
+            <li><a href="dashboard.html">Admin</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Kontak</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Parung No.Km.47, Bogor</p>
+          <p><i class="fab fa-whatsapp"></i> +62 812-3456-7890</p>
+          <p><i class="fas fa-clock"></i> Setiap Hari 10.00 – 02.00</p>
+          <a href="https://wa.me/6281234567890?text=Halo%20Billiard%20805%2C%20saya%20ingin%20booking%20meja" class="btn-wa-footer">
+            <i class="fab fa-whatsapp"></i> Chat WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 BILLIARD 805 Parung · Jawa Barat · Indonesia</p>
+        <p>Made with <i class="fas fa-heart"></i> for the billiard community</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTIONS -->
+  <div class="fab-container">
+    <a href="https://wa.me/6281234567890?text=Halo%20Billiard%20805%2C%20saya%20ingin%20booking!" class="fab-main wa-fab" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <button class="fab-main top-fab" id="backToTop" title="Back to Top" style="display:none">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </div>
+
+  <!-- MODALS -->
+  <!-- Table Booking Modal -->
+  <div class="modal-overlay" id="tableModal">
+    <div class="modal glass">
+      <button class="modal-close" onclick="closeModal('tableModal')"><i class="fas fa-times"></i></button>
+      <h3 id="tableModalTitle">Booking Meja</h3>
+      <div id="tableModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Member Login Modal -->
+  <div class="modal-overlay" id="memberModal">
+    <div class="modal glass">
+      <button class="modal-close" onclick="closeModal('memberModal')"><i class="fas fa-times"></i></button>
+      <h3>Login / Register Member</h3>
+      <div id="memberModalContent">
+        <div class="member-tabs">
+          <button class="mtab active" onclick="switchMemberTab('login')">Login</button>
+          <button class="mtab" onclick="switchMemberTab('register')">Daftar</button>
+        </div>
+        <div id="memberLoginForm">
+          <div class="form-group">
+            <label>Email</label>
+            <div class="input-icon-wrap"><i class="fas fa-envelope"></i><input type="email" id="mEmail" placeholder="email@kamu.com" /></div>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <div class="input-icon-wrap"><i class="fas fa-lock"></i><input type="password" id="mPassword" placeholder="Password..." /></div>
+          </div>
+          <button class="btn-primary full" id="memberLoginSubmit">Login</button>
+        </div>
+        <div id="memberRegForm" style="display:none">
+          <div class="form-group"><label>Nama</label><div class="input-icon-wrap"><i class="fas fa-user"></i><input type="text" id="rNama" placeholder="Nama lengkap" /></div></div>
+          <div class="form-group"><label>Email</label><div class="input-icon-wrap"><i class="fas fa-envelope"></i><input type="email" id="rEmail" placeholder="email@kamu.com" /></div></div>
+          <div class="form-group"><label>WhatsApp</label><div class="input-icon-wrap"><i class="fab fa-whatsapp"></i><input type="tel" id="rWa" placeholder="08xxxxxxxx" /></div></div>
+          <div class="form-group"><label>Password</label><div class="input-icon-wrap"><i class="fas fa-lock"></i><input type="password" id="rPass" placeholder="Min 6 karakter" /></div></div>
+          <div class="form-group">
+            <label>Paket Member</label>
+            <select id="rPaket"><option value="silver">Silver — Rp 150.000/bln</option><option value="gold">Gold — Rp 300.000/bln</option><option value="platinum">Platinum — Rp 500.000/bln</option></select>
+          </div>
+          <button class="btn-primary full" id="memberRegSubmit">Daftar Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Member Profile Modal -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal glass">
+      <button class="modal-close" onclick="closeModal('profileModal')"><i class="fas fa-times"></i></button>
+      <div id="profileContent"></div>
+    </div>
+  </div>
+
+  <!-- Admin Login Modal -->
+  <div class="modal-overlay" id="adminLoginModal">
+    <div class="modal glass admin-login-modal">
+      <button class="modal-close" onclick="closeModal('adminLoginModal')"><i class="fas fa-times"></i></button>
+      <div class="admin-login-header">
+        <i class="fas fa-shield-alt admin-shield"></i>
+        <h3>Admin Access</h3>
+        <p>Masukkan kredensial admin</p>
+      </div>
+      <div class="form-group"><label>Email Admin</label><div class="input-icon-wrap"><i class="fas fa-envelope"></i><input type="email" id="adminEmail" placeholder="admin@billiard.com" /></div></div>
+      <div class="form-group"><label>Password</label><div class="input-icon-wrap"><i class="fas fa-lock"></i><input type="password" id="adminPassword" placeholder="Password admin..." /></div></div>
+      <button class="btn-primary full" id="adminLoginSubmit">Masuk Admin Panel</button>
+    </div>
+  </div>
+
+  <!-- Gallery Lightbox -->
+  <div class="modal-overlay" id="lightboxModal">
+    <div class="lightbox glass">
+      <button class="modal-close" onclick="closeModal('lightboxModal')"><i class="fas fa-times"></i></button>
+      <img id="lightboxImg" src="" alt="" />
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Audio -->
+  <audio id="ambienceAudio" loop>
+    <source src="data:audio/mp3;base64," type="audio/mp3" />
+  </audio>
+
+  <script src="app.js"></script>
+  <script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Billiard 805</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="dark-mode">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <span class="logo-num">805</span>
+        <span class="logo-text">ADMIN</span>
+      </div>
+      <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">UTAMA</div>
+      <a href="#" class="nav-item active" data-page="dashboard">
+        <i class="fas fa-chart-pie"></i><span>Dashboard</span>
+      </a>
+      <a href="#" class="nav-item" data-page="tables">
+        <i class="fas fa-table-tennis-paddle-ball"></i><span>Kelola Meja</span>
+        <span class="nav-badge" id="navBadgeTables">12</span>
+      </a>
+      <a href="#" class="nav-item" data-page="bookings">
+        <i class="fas fa-calendar-check"></i><span>Kelola Booking</span>
+        <span class="nav-badge nav-badge-alert" id="navBadgeBookings">0</span>
+      </a>
+
+      <div class="nav-section-label">KONTEN</div>
+      <a href="#" class="nav-item" data-page="menu">
+        <i class="fas fa-utensils"></i><span>Menu Cafe</span>
+      </a>
+      <a href="#" class="nav-item" data-page="gallery">
+        <i class="fas fa-images"></i><span>Gallery</span>
+      </a>
+      <a href="#" class="nav-item" data-page="promo">
+        <i class="fas fa-tag"></i><span>Promo & Harga</span>
+      </a>
+
+      <div class="nav-section-label">KOMUNITAS</div>
+      <a href="#" class="nav-item" data-page="members">
+        <i class="fas fa-users"></i><span>Member VIP</span>
+      </a>
+      <a href="#" class="nav-item" data-page="tournament">
+        <i class="fas fa-trophy"></i><span>Turnamen</span>
+      </a>
+      <a href="#" class="nav-item" data-page="leaderboard">
+        <i class="fas fa-ranking-star"></i><span>Leaderboard</span>
+      </a>
+      <a href="#" class="nav-item" data-page="testimoni">
+        <i class="fas fa-star"></i><span>Testimoni</span>
+      </a>
+
+      <div class="nav-section-label">SISTEM</div>
+      <a href="#" class="nav-item" data-page="settings">
+        <i class="fas fa-cog"></i><span>Pengaturan</span>
+      </a>
+      <a href="#" class="nav-item" data-page="database">
+        <i class="fas fa-database"></i><span>Database</span>
+      </a>
+      <a href="index.html" class="nav-item nav-back">
+        <i class="fas fa-arrow-left"></i><span>Kembali ke Website</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-info">
+        <div class="admin-avatar">A</div>
+        <div>
+          <div class="admin-name">Administrator</div>
+          <div class="admin-role">Super Admin</div>
+        </div>
+      </div>
+      <button class="logout-btn-sidebar" id="adminLogout"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-wrap" id="mainWrap">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div class="page-title" id="pageTitle">Dashboard</div>
+      </div>
+      <div class="topbar-right">
+        <div class="admin-clock" id="adminClock">00:00:00</div>
+        <button class="theme-toggle-admin" id="themeToggleAdmin"><i class="fas fa-moon"></i></button>
+        <div class="admin-search-wrap">
+          <i class="fas fa-search"></i>
+          <input type="text" id="adminSearch" placeholder="Cari data..." />
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="page-content" id="pageContent">
+      <!-- Rendered by JS -->
+    </main>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal admin-modal">
+      <button class="modal-close" onclick="closeAdminModal()"><i class="fas fa-times"></i></button>
+      <h3 id="adminModalTitle">Modal</h3>
+      <div id="adminModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="adminToastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
